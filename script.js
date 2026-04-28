@@ -2,12 +2,11 @@ const projectsGrid = document.querySelector('.projects-grid');
 
 async function fetchProjects() {
     try {
-        const response = await fetch('http://localhost:5000/api/projects');
+      
         const projects = await response.json();
 
-        // Agar database mein data hai, toh default projects ko replace karo
         if (projects.length > 0) {
-            projectsGrid.innerHTML = ''; // Pehle wala content clear karo
+            projectsGrid.innerHTML = ''; 
             
             projects.forEach(p => {
                 const card = document.createElement('div');
@@ -26,5 +25,3 @@ async function fetchProjects() {
     }
 }
 
-// Page load hote hi data fetch karo
-window.onload = fetchProjects;
